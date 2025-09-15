@@ -1,6 +1,6 @@
 //
 //  VNCBundle.m
-//  OSXvnc
+//  SafariHelper
 //
 //  Created by Jonathan Gillaspie on 3/6/08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.

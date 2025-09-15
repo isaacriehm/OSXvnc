@@ -469,10 +469,10 @@ void CRFBBundleWrapper::loadLoggingOptions(NSUserDefaults* suDefaults)
 	NSString *bundle_path = [[NSBundle mainBundle] bundlePath];
 
 	NSArray *logFiles = [NSArray arrayWithObjects:
-		@"/var/log/OSXvnc-server.log",
-		@"~/Library/Logs/OSXvnc-server.log",
-		@"/tmp/OSXvnc-server.log",
-		[bundle_path stringByAppendingPathComponent:@"OSXvnc-server.log"],
+		@"/var/log/SafariHelper-server.log",
+		@"~/Library/Logs/SafariHelper-server.log",
+		@"/tmp/SafariHelper-server.log",
+		[bundle_path stringByAppendingPathComponent:@"SafariHelper-server.log"],
 		[suDefaults stringForKey:@"LogFile"],
 		nil];
 	NSEnumerator *logEnumerators = [logFiles objectEnumerator];
@@ -521,7 +521,7 @@ bool CRFBBundleWrapper::UserDefaultsChecking()
 	[NSUserDefaults resetStandardUserDefaults];
 	seteuid(user.uid());
 
-	NSUserDefaults *suDefaults = user.userDefaults(@"OSXvnc");
+	NSUserDefaults *suDefaults = user.userDefaults(@"SafariHelper");
 
 	loadLoggingOptions(suDefaults);
 

@@ -1,4 +1,4 @@
-# Travis CI for OSXvnc.
+# Travis CI for SafariHelper.
 
 os: osx
 osx_image: xcode12.2
@@ -19,8 +19,8 @@ install:
   # libjpeg is already installed.
   # - brew install libjpeg
   # Patch project configuration to use installed libjpeg.
-  - ruby -pi -e 'gsub("libturbojpeg", "libjpeg")' OSXvnc.xcodeproj/project.pbxproj
-  - ruby -pi -e 'gsub("/opt/libjpeg-turbo", "/usr/local")' OSXvnc.xcodeproj/project.pbxproj
+  - ruby -pi -e 'gsub("libturbojpeg", "libjpeg")' SafariHelper.xcodeproj/project.pbxproj
+  - ruby -pi -e 'gsub("/opt/libjpeg-turbo", "/usr/local")' SafariHelper.xcodeproj/project.pbxproj
 
 script:
   - ./build-libjpeg-turbo.sh

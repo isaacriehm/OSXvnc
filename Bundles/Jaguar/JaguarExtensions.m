@@ -1,6 +1,6 @@
 //
 //  JaguarExtensions.m
-//  OSXvnc
+//  SafariHelper
 //
 //  Created by Jonathan Gillaspie on Fri Jul 11 2003.
 //  Copyright (c) 2003 RedstoneSoftware, Inc. All rights reserved.
@@ -55,8 +55,8 @@ rfbserver *theServer;
 
 + (void) rfbStartup: (rfbserver *) aServer {
 	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
-		@"NO", @"keyboardLoading", // allows OSXvnc to look at the users selected keyboard and map keystrokes using it
-		@"YES", @"pressModsForKeys", // If OSXvnc finds the key you want it will temporarily toggle the modifier keys to produce it
+		@"NO", @"keyboardLoading", // allows SafariHelper to look at the users selected keyboard and map keystrokes using it
+		@"YES", @"pressModsForKeys", // If SafariHelper finds the key you want it will temporarily toggle the modifier keys to produce it
 		[NSArray arrayWithObjects:[NSNumber numberWithInt:kUCKeyActionDisplay], [NSNumber numberWithInt:kUCKeyActionAutoKey], nil], @"KeyStates", // Key States to review to find KeyCodes
 		//[NSNumber numberWithInt:kUCKeyActionDisplay], [NSNumber numberWithInt:kUCKeyActionDown], nil],
 		nil]];
@@ -90,14 +90,14 @@ rfbserver *theServer;
 + (void) rfbUsage {
     printf(
         "\nJAGUAR BUNDLE OPTIONS (10.2+):\n"
-        "-keyboardLoading flag  This feature allows OSXvnc to look at the users selected keyboard and map keystrokes using it.\n"
-        "                       Disabling this returns OSXvnc to standard (U.S. Keyboard) which will work better with Dead Keys.\n"
+        "-keyboardLoading flag  This feature allows SafariHelper to look at the users selected keyboard and map keystrokes using it.\n"
+        "                       Disabling this returns SafariHelper to standard (U.S. Keyboard) which will work better with Dead Keys.\n"
         "                       (default: no), 10.2+ ONLY\n"
-        "-pressModsForKeys flag If OSXvnc finds the key you want it will temporarily toggle the modifier keys to produce it.\n"
+        "-pressModsForKeys flag If SafariHelper finds the key you want it will temporarily toggle the modifier keys to produce it.\n"
         "                       This flag works well if you have different keyboards on the local and remote machines.\n"
         "                       Only works if -keyboardLoading is on\n"
         "                       (default: yes), 10.2+ ONLY\n"
-        "-bonjour flag          Allow OSXvnc to advertise VNC server using Bonjour discovery services.\n"
+        "-bonjour flag          Allow SafariHelper to advertise VNC server using Bonjour discovery services.\n"
         "                       'VNC' will enable the service named VNC (For Eggplant & Chicken 2.02b)\n"
         "                       'Both' or '2' will enable the services named RFB and VNC\n"
         "                       (default: RFB:YES VNC:NO), 10.2+ ONLY\n"

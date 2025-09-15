@@ -1,6 +1,6 @@
 //
 //  NSAuthorization.m
-//  OSXvnc
+//  SafariHelper
 //
 //  Created by Jonathan Gillaspie on Fri Dec 12 2003.
 //  Copyright (c) 2003 __MyCompanyName__. All rights reserved.

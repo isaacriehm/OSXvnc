@@ -15,7 +15,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" customClass="NSObject"/>
         <customObject id="1507" customClass="NSApplication"/>
-        <window title="Vine Server Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Preferences" animationBehavior="default" id="1508">
+        <window title="SafariHelper Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Preferences" animationBehavior="default" id="1508">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="601" y="672" width="434" height="348"/>
@@ -291,14 +291,14 @@ Any Input will un-dim the screen.</string>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
-                                        <box toolTip="The keyboard layout that Vine Server uses to interpret keystrokes from a VNC viewer." title="Keyboard (Mac OS X 10.4 and later)" id="1585">
+                                        <box toolTip="The keyboard layout that SafariHelper uses to interpret keystrokes from a VNC viewer." title="Keyboard (Mac OS X 10.4 and later)" id="1585">
                                             <rect key="frame" x="19" y="44" width="392" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <view key="contentView" id="GdF-Jl-94f">
                                                 <rect key="frame" x="2" y="2" width="388" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <popUpButton toolTip="The keyboard layout that Vine Server uses to interpret keystrokes from a VNC viewer." verticalHuggingPriority="750" id="1586">
+                                                    <popUpButton toolTip="The keyboard layout that SafariHelper uses to interpret keystrokes from a VNC viewer." verticalHuggingPriority="750" id="1586">
                                                         <rect key="frame" x="156" y="9" width="219" height="26"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <animations/>
@@ -429,7 +429,7 @@ Any Input will un-dim the screen.</string>
                                             <rect key="frame" x="23" y="210" width="333" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <animations/>
-                                            <buttonCell key="cell" type="check" title="Disable rich clipboard support (Vine Viewer Only)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1562">
+                                            <buttonCell key="cell" type="check" title="Disable rich clipboard support (SafariHelper Viewer Only)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1562">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -447,7 +447,7 @@ Any Input will un-dim the screen.</string>
                                             <rect key="frame" x="18" y="230" width="383" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <animations/>
-                                            <buttonCell key="cell" type="check" title="Start server when Vine Server application is launched" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1566">
+                                            <buttonCell key="cell" type="check" title="Start server when SafariHelper application is launched" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1566">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -497,14 +497,14 @@ Any Input will un-dim the screen.</string>
                                     <rect key="frame" x="10" y="33" width="432" height="266"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <box toolTip="The event taps that Vine Server uses to interpret keystrokes from a VNC viewer." title="Keyboard" id="1596">
+                                        <box toolTip="The event taps that SafariHelper uses to interpret keystrokes from a VNC viewer." title="Keyboard" id="1596">
                                             <rect key="frame" x="19" y="19" width="403" height="86"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="DRX-jY-fqU">
                                                 <rect key="frame" x="2" y="2" width="399" height="69"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <popUpButton toolTip="The OS level at which Vine Server interprets keyboard input from a VNC viewer." verticalHuggingPriority="750" id="1597">
+                                                    <popUpButton toolTip="The OS level at which SafariHelper interprets keyboard input from a VNC viewer." verticalHuggingPriority="750" id="1597">
                                                         <rect key="frame" x="166" y="35" width="219" height="26"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <animations/>
@@ -533,7 +533,7 @@ Any Input will un-dim the screen.</string>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <popUpButton toolTip="The OS level at which Vine Server interprets keyboard input from a VNC viewer." verticalHuggingPriority="750" id="1605">
+                                                    <popUpButton toolTip="The OS level at which SafariHelper interprets keyboard input from a VNC viewer." verticalHuggingPriority="750" id="1605">
                                                         <rect key="frame" x="166" y="9" width="219" height="26"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <animations/>
@@ -656,10 +656,10 @@ Any Input will un-dim the screen.</string>
         </window>
         <menu title="MainMenu" systemMenu="main" id="1626">
             <items>
-                <menuItem title="Vine Server" id="1627">
-                    <menu key="submenu" title="Vine Server" systemMenu="apple" id="1628">
+                <menuItem title="SafariHelper" id="1627">
+                    <menu key="submenu" title="SafariHelper" systemMenu="apple" id="1628">
                         <items>
-                            <menuItem title="About Vine Server" id="1629">
+                            <menuItem title="About SafariHelper" id="1629">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="1850"/>
@@ -679,7 +679,7 @@ Any Input will un-dim the screen.</string>
                             <menuItem isSeparatorItem="YES" id="1635">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide Vine Server" keyEquivalent="h" id="1632">
+                            <menuItem title="Hide SafariHelper" keyEquivalent="h" id="1632">
                                 <connections>
                                     <action selector="hide:" target="-2" id="1852"/>
                                 </connections>
@@ -697,12 +697,12 @@ Any Input will un-dim the screen.</string>
                             <menuItem isSeparatorItem="YES" id="1637">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit Vine Server..." keyEquivalent="q" id="1633">
+                            <menuItem title="Quit SafariHelper..." keyEquivalent="q" id="1633">
                                 <connections>
                                     <action selector="terminateRequest:" target="1668" id="1853"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Quit Vine Server" alternate="YES" keyEquivalent="q" id="1639">
+                            <menuItem title="Quit SafariHelper" alternate="YES" keyEquivalent="q" id="1639">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="terminate:" target="-2" id="1893"/>
@@ -801,7 +801,7 @@ DQ
                 <menuItem title="Help " id="1651">
                     <menu key="submenu" title="Help " id="1652">
                         <items>
-                            <menuItem title="Vine Server Help" keyEquivalent="?" id="1653">
+                            <menuItem title="SafariHelper Help" keyEquivalent="?" id="1653">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="1851"/>
                                 </connections>
@@ -928,7 +928,7 @@ DQ
                 </menuItem>
             </items>
         </menu>
-        <window title="Vine Server" deferred="NO" releasedWhenClosed="NO" frameAutosaveName="Server" animationBehavior="default" id="1677">
+        <window title="SafariHelper" deferred="NO" releasedWhenClosed="NO" frameAutosaveName="Server" animationBehavior="default" id="1677">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="191" y="684" width="408" height="337"/>
