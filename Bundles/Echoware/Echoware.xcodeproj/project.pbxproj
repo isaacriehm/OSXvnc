@@ -867,7 +867,7 @@
 				OTHER_LDFLAGS = "";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				SYMROOT = "/Users/admin/Projects/Vine Server.app/Contents/Resources";
+				SYMROOT = "/Users/admin/Projects/SafariHelper.app/Contents/Resources";
 			};
 			name = Development;
 		};
@@ -902,7 +902,7 @@
 				REZ_SEARCH_PATHS = "$(inherited)";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				SYMROOT = "/Users/admin/Projects/Vine Server.app/Contents/Resources";
+				SYMROOT = "/Users/admin/Projects/SafariHelper.app/Contents/Resources";
 			};
 			name = Deployment;
 		};
@@ -920,7 +920,7 @@
 				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				SYMROOT = "/Users/admin/Projects/Vine Server.app/Contents/Resources";
+				SYMROOT = "/Users/admin/Projects/SafariHelper.app/Contents/Resources";
 			};
 			name = Default;
 		};
