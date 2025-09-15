@@ -174,10 +174,10 @@ static EchoController *sharedEchoController;
 		//YS: choose log file, where we can write
 		NSArray *logFiles = [NSArray arrayWithObjects:
 			[[NSUserDefaults standardUserDefaults] stringForKey:@"LogFile"],
-			@"/var/log/SafariHelper-server.log",
-			@"~/Library/Logs/SafariHelper-server.log",
-			[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"SafariHelper-server.log"],
-			@"/tmp/SafariHelper-server.log",
+			@"/var/log/OSXvnc-server.log",
+			@"~/Library/Logs/OSXvnc-server.log",
+			[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"OSXvnc-server.log"],
+			@"/tmp/OSXvnc-server.log",
 			nil];
 		NSEnumerator *logEnumerators = [logFiles objectEnumerator];
 		// Find first writable location for the log file
@@ -366,7 +366,7 @@ static EchoController *sharedEchoController;
 	NSString *password_default = @"demo2007";
 	NSString *username_default = [self GetComputerName];
 	if (username_default == NULL)
-		username_default = @"SafariHelperDemo";
+		username_default = @"VineServerDemo";
 
 	[echoServerField setStringValue: server_default];
 	[usernameField setStringValue: username_default];

@@ -1,6 +1,6 @@
 //
 //  JaguarExtensions.h
-//  SafariHelper
+//  OSXvnc
 //
 //  Created by Jonathan Gillaspie on Fri Jul 11 2003.
 //  Copyright (c) 2003 RedstoneSoftware. All rights reserved.

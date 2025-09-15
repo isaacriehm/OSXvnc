@@ -1,6 +1,6 @@
 //
 //  VNCController.h
-//  SafariHelper
+//  OSXvnc
 //
 //  Created by Jonathan Gillaspie on Fri Aug 02 2002.
 //  Copyright (c) 2002 Redstone Software, Inc. All rights reserved.

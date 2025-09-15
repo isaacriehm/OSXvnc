@@ -1,19 +1,17 @@
-[![Build Status](https://travis-ci.org/stweil/SafariHelper.svg?branch=master)](https://travis-ci.org/stweil/SafariHelper)
+[![Build Status](https://travis-ci.org/stweil/OSXvnc.svg?branch=master)](https://travis-ci.org/stweil/OSXvnc)
 
-SafariHelper VNC Server
-=======================
+Vine VNC Server (OSXvnc)
+========================
 
-SafariHelper is a renamed and hardened edition of the classic OSXvnc/Vine Server project.
-This fork focuses on providing a Safari-branded management utility while enforcing
-high-privilege execution so that the service always runs with full system access.
+The code in this Git repository is based on the CVS repository at
+http://osxvnc.cvs.sourceforge.net/viewvc/osxvnc/.
+It was created using this command:
 
-The source originated from the historical CVS repository that used to host the OSXvnc
-code base.  The content of that archive was imported with:
+    git cvsimport -d :pserver:anonymous@osxvnc.cvs.sourceforge.net:/cvsroot/osxvnc OSXvnc
 
-    git cvsimport -d :pserver:anonymous@osxvnc.cvs.sourceforge.net:/cvsroot/osxvnc SafariHelper
+Vine was developed at Redstone Software which was acquired by TestPlant.
 
-SafariHelper continues to carry forward the improvements from the Vine Server lineage
-while presenting the software solely under the new SafariHelper identity.
+This is a modified private copy of the original software.
 
 News
 ----
@@ -40,13 +38,13 @@ or a compatible libjpeg.
 
 ### 2015-10-10
 
-SafariHelper now also works with high resolution (retina) displays
+Vine VNC server now also works with high resolution (retina) displays
 (thanks to Tom Sealy who wrote the new code).
 
 Building
 --------
 
-SafariHelper requires Xcode to build a distributable packet from sources.
+Vine VNC server requires Xcode to build a distributable packet from sources.
 
 In addition, it uses the JPEG library [libjpeg-turbo](https://libjpeg-turbo.org/).
 The source code for that library is included as a Git submodule.
@@ -54,9 +52,9 @@ The source code for that library is included as a Git submodule.
 ### Building from Xcode
 
 Build the libjpeg-turbo library first by running `./build-libjpeg-turbo.sh`.
-Then open `SafariHelper.xcodeproj` in Xcode and build the "SafariHelper Package".
+Then open `OSXvnc.xcodeproj` in Xcode and build the "Vine Server Package".
 
-You will find the distributable at /tmp/SafariHelper.dmg
+You will find the distributable at /tmp/VineServer.dmg
 
 ### Building from the command line
 
@@ -65,15 +63,7 @@ Run these commands from the command line:
     ./build-libjpeg-turbo.sh
     xcodebuild -configuration Deployment
 
-Again you will find the distributable at /tmp/SafariHelper.dmg
-
-Security
---------
-
-SafariHelper refuses to launch unless it detects that it is running with root privileges.
-This safeguard keeps the service operating with the required kernel-level access that the
-renamed project now targets. Be sure to launch the application (and any helper tools) via
-a root-owned mechanism such as launchd or sudo.
+Again you will find the distributable at /tmp/VineServer.dmg
 
 License
 -------
@@ -95,12 +85,12 @@ or the file LICENSE in the distribution.
 Links
 -----
 
-Original CVS repository at Sourceforge:
+CVS repository at Sourceforge:
 * http://osxvnc.cvs.sourceforge.net/viewvc/osxvnc/
 
-Additional Git mirrors of the legacy code:
+Other Git clones of the CVS code:
 * https://github.com/aaronbrethorst/OSXVnc
-* https://github.com/browserstack/OSXVnc
+* https://github.com/browserstack/OSXVNC
 * https://github.com/eventials/OSXVnc
 * https://github.com/wingify/vnc
 

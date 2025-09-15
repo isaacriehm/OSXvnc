@@ -1,8 +1,8 @@
 /*
  *  VNCController.m
- *  SafariHelper
+ *  OSXvnc
  *
- *  Created by Jonathan Gillaspie on Fri Aug 02 2002.  safarihelper@redstonesoftware.com
+ *  Created by Jonathan Gillaspie on Fri Aug 02 2002.  osxvnc@redstonesoftware.com
  *  Copyright (c) 2002-2005 Redstone Software Inc. All rights reserved.
  *
  *  All Rights Reserved.
@@ -25,7 +25,7 @@
 
 #import "VNCController.h"
 
-#import "SafariHelper-server/vncauth.h"
+#import "OSXvnc-server/vncauth.h"
 #import <signal.h>
 #import <unistd.h>
 #import <sys/socket.h>
@@ -191,8 +191,8 @@ static NSMutableArray *localIPAddresses(void) {
                                                                @"externalIPURL": @"http://automation.whatismyip.com/n09230945.asp",
 #endif
 
-                                                               @"startupItemLocation": @"/Library/StartupItems/SafariHelper",
-                                                               @"launchdItemLocation": @"/Library/LaunchAgents/com.redstonesoftware.SafariHelper.plist"
+                                                               @"startupItemLocation": @"/Library/StartupItems/OSXvnc",
+                                                               @"launchdItemLocation": @"/Library/LaunchAgents/com.redstonesoftware.VineServer.plist"
                                                                }];
 
     alwaysShared = FALSE;
@@ -216,11 +216,11 @@ static NSMutableArray *localIPAddresses(void) {
 
 - (IBAction) terminateRequest: sender {
     if (clientList.count && !shutdownSignal)
-        NSBeginAlertSheet(LocalizedString(@"Quit SafariHelper"),
+        NSBeginAlertSheet(LocalizedString(@"Quit Vine Server"),
                           LocalizedString(@"Cancel"),
                           LocalizedString(@"Quit"),
                           nil, statusWindow, self, @selector(terminateSheetDidEnd:returnCode:contextInfo:), NULL, NULL,
-                          LocalizedString(@"Disconnect %lu clients and quit SafariHelper?"), (unsigned long)clientList.count);
+                          LocalizedString(@"Disconnect %lu clients and quit Vine Server?"), (unsigned long)clientList.count);
     else
         [NSApp terminate: self];
 }
@@ -411,9 +411,9 @@ static NSMutableArray *localIPAddresses(void) {
 
 - (void) determinePasswordLocation {
     NSArray *passwordFiles = @[[[NSUserDefaults standardUserDefaults] stringForKey:@"PasswordFile"],
-                               @"~/.safarihelperauth",
-                               [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@".safarihelperauth"],
-                               @"/tmp/.safarihelperauth"];
+                               @"~/.vinevncauth",
+                               [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@".vinevncauth"],
+                               @"/tmp/.vinevncauth"];
     NSEnumerator *passwordEnumerators = [passwordFiles objectEnumerator];
 
     [passwordFile release];
@@ -430,10 +430,10 @@ static NSMutableArray *localIPAddresses(void) {
 
 - (void) determineLogLocation {
     NSArray *logFiles = @[[[NSUserDefaults standardUserDefaults] stringForKey:@"LogFile"],
-                          @"~/Library/Logs/SafariHelper.log",
-                          @"/var/log/SafariHelper.log",
-                          @"/tmp/SafariHelper.log",
-                          [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"SafariHelper.log"]];
+                          @"~/Library/Logs/VineServer.log",
+                          @"/var/log/VineServer.log",
+                          @"/tmp/VineServer.log",
+                          [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"VineServer.log"]];
     NSEnumerator *logEnumerators = [logFiles objectEnumerator];
 
     [logFile release];
@@ -457,8 +457,8 @@ static NSMutableArray *localIPAddresses(void) {
     connectPort.stringValue = @"";
     [connectPort.cell performSelector:@selector(setPlaceholderString:) withObject:@"5500"];
 
-    // Copy over old preferences found in SafariHelper
-    NSDictionary *oldPrefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"SafariHelper"];
+    // Copy over old preferences found in OSXvnc
+    NSDictionary *oldPrefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"OSXvnc"];
 
     if (!oldPrefs[@"Converted"]) {
         [[NSUserDefaults standardUserDefaults] registerDefaults:oldPrefs];
@@ -467,7 +467,7 @@ static NSMutableArray *localIPAddresses(void) {
         oldPrefs = [oldPrefs mutableCopy];
         ((NSMutableDictionary *)oldPrefs)[@"Converted"] = [NSNumber numberWithBool:TRUE]; // Record that we've converted
         [[NSUserDefaults standardUserDefaults] setPersistentDomain:oldPrefs
-                                                           forName:@"SafariHelper"]; // write it back
+                                                           forName:@"OSXvnc"]; // write it back
     }
     else
         [self loadUserDefaults: self];
@@ -568,7 +568,7 @@ static NSMutableArray *localIPAddresses(void) {
     sin4.sin_family = AF_INET;
     sin4.sin_addr.s_addr = htonl(INADDR_ANY);
 
-    // I'm going to only scan on IPv4 since our SafariHelper is going to register in both spaces
+    // I'm going to only scan on IPv4 since our OSXvnc is going to register in both spaces
     //  struct sockaddr_in6 sin6;
     //  int listen_fd6=0;
 
@@ -847,7 +847,7 @@ static NSMutableArray *localIPAddresses(void) {
         NSDictionary *infoDictionary = [NSBundle mainBundle].infoDictionary;
 
         NSString *executionPath = [[NSBundle mainBundle].bundlePath
-                                   stringByAppendingPathComponent: @"Contents/MacOS/SafariHelper-server"];
+                                   stringByAppendingPathComponent: @"Contents/MacOS/OSXvnc-server"];
         NSString *noteStartup = [NSString stringWithFormat:@"%@\tStarting %@ %@(%@)\n",
                                  [NSDate date], [NSProcessInfo processInfo].processName,
                                  [infoDictionary valueForKey:@"CFBundleShortVersion"],
@@ -876,7 +876,7 @@ static NSMutableArray *localIPAddresses(void) {
         [[NSDistributedNotificationCenter defaultCenter] addObserver:self
                                                             selector:@selector(activeConnections:)
                                                                 name:@"VNCConnections"
-                                                              object:[NSString stringWithFormat:@"SafariHelper%d", self.runningPortNum]
+                                                              object:[NSString stringWithFormat:@"OSXvnc%d", self.runningPortNum]
                                                   suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
 
         [controller launch];
@@ -937,7 +937,7 @@ static NSMutableArray *localIPAddresses(void) {
 
     [[NSDistributedNotificationCenter defaultCenter] removeObserver:self
                                                                name:@"VNCConnections"
-                                                             object:[NSString stringWithFormat:@"SafariHelper%d", self.runningPortNum]];
+                                                             object:[NSString stringWithFormat:@"OSXvnc%d", self.runningPortNum]];
 
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: NSTaskDidTerminateNotification
@@ -957,7 +957,7 @@ static NSMutableArray *localIPAddresses(void) {
     if (userStopped)
         [statusMessageField setStringValue:LocalizedString(@"The server is stopped.")];
     else if (controller.terminationStatus==250) {
-        NSMutableString *messageString = [NSMutableString stringWithFormat: LocalizedString(@"SafariHelper can't listen on the specified port (%d)."), self.runningPortNum];
+        NSMutableString *messageString = [NSMutableString stringWithFormat: LocalizedString(@"Vine Server can't listen on the specified port (%d)."), self.runningPortNum];
         [messageString appendString:@"\n"];
         if (systemServerIsConfigured)
             [messageString appendString:LocalizedString(@"Probably because the VNC server is already running as a Startup Item.")];
@@ -1373,7 +1373,7 @@ static NSMutableArray *localIPAddresses(void) {
     }
 
     [[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"VNCConnectHost"
-                                                                   object:[NSString stringWithFormat:@"SafariHelper%d", self.runningPortNum]
+                                                                   object:[NSString stringWithFormat:@"OSXvnc%d", self.runningPortNum]
                                                                  userInfo:argumentsDict
                                                        deliverImmediately:YES];
 
@@ -1441,7 +1441,7 @@ static NSMutableArray *localIPAddresses(void) {
 }
 
 - (IBAction) openReleaseNotes:(id) sender {
-    NSString *openPath = [[NSBundle mainBundle] pathForResource:@"SafariHelper Release Notes" ofType:@"rtf"];
+    NSString *openPath = [[NSBundle mainBundle] pathForResource:@"Vine Server Release Notes" ofType:@"rtf"];
 
     [[NSWorkspace sharedWorkspace] openFile:openPath];
 }
@@ -1466,29 +1466,29 @@ static NSMutableArray *localIPAddresses(void) {
     BOOL success = TRUE;
     NSMutableDictionary *launchdDictionary = [NSMutableDictionary dictionary];
     NSString *launchdPath = [[NSUserDefaults standardUserDefaults] stringForKey:@"launchdItemLocation"];
-    NSString *logLocation = @"/Library/Logs/SafariHelper.log";
+    NSString *logLocation = @"/Library/Logs/VineServer.log";
     NSString *oldPasswordFile = passwordFile;
     NSData *vncauth = [[NSUserDefaults standardUserDefaults] dataForKey:@"vncauthSystemServer"];
 
-    NSString *launchdResources = @"/Library/Application Support/SafariHelper";
+    NSString *launchdResources = @"/Library/Application Support/VineServer";
 
-    // If SafariHelper resources directory doesn't exist then create it
+    // If VineServer resources directory doesn't exist then create it
     if (![[NSFileManager defaultManager] fileExistsAtPath:launchdResources]) {
         success &= [myAuthorization executeCommand:@"/bin/mkdir"
                                           withArgs:@[@"-p", launchdResources]];
         success &= [myAuthorization executeCommand:@"/usr/sbin/chown"
                                           withArgs:@[@"-R", @"root:wheel", launchdResources]];
         if (!success) {
-            [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable to setup SafariHelper folder")];
+            [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable to setup VineServer folder")];
             success = FALSE;
         }
     }
 
     if (vncauth.length) {
-        passwordFile = [launchdResources stringByAppendingPathComponent: @".safarihelperauth"];
-        [vncauth writeToFile:@"/tmp/.safarihelperauth" atomically:YES];
+        passwordFile = [launchdResources stringByAppendingPathComponent: @".vinevncauth"];
+        [vncauth writeToFile:@"/tmp/.vinevncauth" atomically:YES];
         if (![myAuthorization executeCommand:@"/bin/mv"
-                                    withArgs:@[@"-f", @"/tmp/.safarihelperauth", passwordFile]]) {
+                                    withArgs:@[@"-f", @"/tmp/.vinevncauth", passwordFile]]) {
             [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable To Setup Password File")];
             success = FALSE;
         }
@@ -1499,7 +1499,7 @@ static NSMutableArray *localIPAddresses(void) {
     if (success && argv) {
         NSMutableArray *copyArgsArray = [NSMutableArray array];
         NSString *executionPath = [[NSBundle mainBundle].bundlePath
-                                   stringByAppendingPathComponent: @"Contents/MacOS/SafariHelper-server"];
+                                   stringByAppendingPathComponent: @"Contents/MacOS/OSXvnc-server"];
 
         // Copy Server Executable
         [copyArgsArray removeAllObjects];
@@ -1509,7 +1509,7 @@ static NSMutableArray *localIPAddresses(void) {
         [copyArgsArray addObject:launchdResources];
 
         if (![myAuthorization executeCommand:@"/bin/cp" withArgs:copyArgsArray]) {
-            [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable to copy SafariHelper-server executable")];
+            [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable to copy OSXvnc-server executable")];
             return FALSE;
         }
 
@@ -1533,8 +1533,8 @@ static NSMutableArray *localIPAddresses(void) {
                                           withArgs:@[@"-R", @"755", launchdResources]];
 
         // Configure PLIST
-        launchdDictionary[@"Label"] = @"SafariHelper";
-        [argv insertObject:[launchdResources stringByAppendingPathComponent:@"SafariHelper-server"] atIndex:0];
+        launchdDictionary[@"Label"] = @"VineServer";
+        [argv insertObject:[launchdResources stringByAppendingPathComponent:@"OSXvnc-server"] atIndex:0];
         launchdDictionary[@"ProgramArguments"] = argv;
 
         launchdDictionary[@"KeepAlive"] = [NSNumber numberWithBool:TRUE];
@@ -1569,7 +1569,7 @@ static NSMutableArray *localIPAddresses(void) {
                                           withArgs:@[@"load", @"-S", @"Aqua", launchdPath]];
 
         if (!success) {
-            [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable To Setup SafariHelper using launchd")];
+            [startupItemStatusMessageField setStringValue:LocalizedString(@"Error: Unable To Setup Vine Server using launchd")];
         }
     }
 
@@ -1631,8 +1631,8 @@ static NSMutableArray *localIPAddresses(void) {
     }
 
     if ([[NSFileManager defaultManager] fileExistsAtPath: startupPath]) {
-        // Kill any running system servers, necessary since old SafariHelper scripts don't work on Leopard
-        success &= [myAuthorization executeCommand:[NSString stringWithFormat:@"%@/SafariHelper/SafariHelper", [NSBundle mainBundle].resourcePath]
+        // Kill any running system servers, necessary since old OSXvnc scripts don't work on Leopard
+        success &= [myAuthorization executeCommand:[NSString stringWithFormat:@"%@/OSXvnc/OSXvnc", [NSBundle mainBundle].resourcePath]
                                           withArgs:@[@"stop"]];
         success &= [myAuthorization executeCommand:@"/bin/rm"
                                           withArgs:@[@"-r", @"-f", startupPath]];

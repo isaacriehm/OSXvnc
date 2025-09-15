@@ -1,6 +1,6 @@
 //
 //  TigerExtensions.m
-//  SafariHelper
+//  OSXvnc
 //
 //  Created by Jonathan Gillaspie on Fri Jul 11 2003.
 //  Copyright (c) 2003 RedstoneSoftware, Inc. All rights reserved.

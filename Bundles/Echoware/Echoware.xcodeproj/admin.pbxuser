@@ -2,7 +2,7 @@
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Deployment;
-		activeExecutable = 8480D0BC0B5F8D200030E8C0 /* SafariHelper 2.1 */;
+		activeExecutable = 8480D0BC0B5F8D200030E8C0 /* Vine Server 2.1 */;
 		activeTarget = 8D5B49AC048680CD000E48DA /* Echoware */;
 		addToTargets = (
 			8D5B49AC048680CD000E48DA /* Echoware */,
@@ -12,7 +12,7 @@
 		breakpointsGroup = 84DAA51F0B14A33800222618 /* XCBreakpointsBucket */;
 		codeSenseManager = 84DAA48F0B132F2900222618 /* Code sense */;
 		executables = (
-			8480D0BC0B5F8D200030E8C0 /* SafariHelper 2.1 */,
+			8480D0BC0B5F8D200030E8C0 /* Vine Server 2.1 */,
 		);
 		expressions = (
 			dwKey,
@@ -381,7 +381,7 @@
 		sourceControlManager = 84DAA48E0B132F2900222618 /* Source Control */;
 		userBuildSettings = {
 			OBJROOT = "/Users/admin/Projects/VS 2.1/Echoware.build";
-			SYMROOT = "/Users/admin/Projects/VS 2.1/SafariHelper.app/Contents/Resources";
+			SYMROOT = "/Users/admin/Projects/VS 2.1/Vine Server.app/Contents/Resources";
 		};
 	};
 	089C167EFE841241C02AAC07 /* English */ = {
@@ -1685,7 +1685,7 @@
 		vrLen = 788;
 		vrLoc = 519;
 	};
-	8480D0BC0B5F8D200030E8C0 /* SafariHelper 2.1 */ = {
+	8480D0BC0B5F8D200030E8C0 /* Vine Server 2.1 */ = {
 		isa = PBXExecutable;
 		activeArgIndex = 2147483647;
 		activeArgIndices = (
@@ -1704,9 +1704,9 @@
 		);
 		executableSystemSymbolLevel = 0;
 		executableUserSymbolLevel = 0;
-		launchableReference = 8480D0BD0B5F8D200030E8C0 /* SafariHelper.app */;
+		launchableReference = 8480D0BD0B5F8D200030E8C0 /* Vine Server.app */;
 		libgmallocEnabled = 0;
-		name = "SafariHelper 2.1";
+		name = "Vine Server 2.1";
 		savedGlobals = {
 		};
 		sourceDirectories = (
@@ -1746,11 +1746,11 @@
 			$xmm7 = 1;
 		};
 	};
-	8480D0BD0B5F8D200030E8C0 /* SafariHelper.app */ = {
+	8480D0BD0B5F8D200030E8C0 /* Vine Server.app */ = {
 		isa = PBXFileReference;
 		explicitFileType = wrapper.application;
-		name = "SafariHelper.app";
-		path = "/Users/admin/Projects/VS 2.1/SafariHelper.app";
+		name = "Vine Server.app";
+		path = "/Users/admin/Projects/VS 2.1/Vine Server.app";
 		sourceTree = "<absolute>";
 	};
 	8487D8910C6B307D006BDD7C /* PBXBookmark */ = {
